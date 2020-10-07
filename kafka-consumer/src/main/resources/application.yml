@@ -1,17 +1,9 @@
 spring.profiles.include: common
 
-
-
 ---
 
 spring.profiles: consumer-1
-spring:
-  application:
-    name: consumer-1
 
 ---
 
 spring.profiles: consumer-2
-spring:
-  application:
-    name: consumer-2
