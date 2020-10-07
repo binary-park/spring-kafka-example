@@ -1,4 +1,4 @@
-package io.github.wyparks2.kafcaproducer.config;
+package io.github.wyparks2.kafkaconsumer.config;
 
 import io.github.wyparks2.common.KafkaTopics;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -10,7 +10,7 @@ public class KafkaTopicConfig {
 
   @Bean
   public NewTopic topicPartition1() {
-    return new NewTopic(KafkaTopics.EXAMPLE_PARTITION_1, 3, (short) 1);
+    return new NewTopic(KafkaTopics.EXAMPLE_PARTITION_1, 1, (short) 1);
   }
 
   @Bean

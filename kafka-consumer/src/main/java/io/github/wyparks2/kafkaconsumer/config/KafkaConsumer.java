@@ -2,7 +2,6 @@ package io.github.wyparks2.kafkaconsumer.config;
 
 import io.github.wyparks2.common.KafkaTopics;
 import io.github.wyparks2.common.Message;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,39 +16,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaConsumer {
 
-  @Value("${spring.application.name}")
-  private String applicationName;
-
   @KafkaListener(
-      topics = KafkaTopics.EXAMPLE_PARTITION_1,
-      containerFactory = "kafkaListenerContainerFactory1"
+      topics = KafkaTopics.EXAMPLE_PARTITION_2
   )
-  public void listen1(Message message) {
-    log.info("[{}] {}", "consumer-1", message);
+  public void listen1(Message message) throws InterruptedException {
+    Thread.sleep(100);
+    log.info("{}", message);
   }
-
-  @KafkaListener(
-      topics = KafkaTopics.EXAMPLE_PARTITION_1,
-      containerFactory = "kafkaListenerContainerFactory2"
-  )
-  public void listen2(Message message) {
-    log.info("[{}] {}", "consumer-2", message);
-  }
-
-  @KafkaListener(
-      topics = KafkaTopics.EXAMPLE_PARTITION_1,
-      containerFactory = "kafkaListenerContainerFactory3"
-  )
-  public void listen3(Message message) {
-    log.info("[{}] {}", "consumer-3", message);
-  }
-
-//  @KafkaListener(topics = KafkaTopics.EXAMPLE_PARTITION_1)
-//  public void listen(List<Message> messages) {
-//    for (Message message : messages) {
-//      log.info("[{}] {}", applicationName, message);
-//    }
-//
-//    log.info("batch size : {}", messages.size());
-//  }
 }

@@ -49,6 +49,8 @@ project(':common') {
     dependencies {
         compile 'org.springframework.kafka:spring-kafka'
         compile 'com.fasterxml.jackson.core:jackson-databind:2.11.2'
+        compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.2'
+        compile 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.11.2'
     }
 }
 

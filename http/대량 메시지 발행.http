@@ -1,1 +1,1 @@
-GET http://localhost:8080/producer/stress
+GET http://localhost:8080/producer/stress/100

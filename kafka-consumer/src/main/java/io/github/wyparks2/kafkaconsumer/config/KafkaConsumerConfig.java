@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -47,23 +46,4 @@ public class KafkaConsumerConfig {
     factory.setConsumerFactory(consumerFactory());
     return factory;
   }
-
-  @Bean
-  public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Message>>
-  kafkaListenerContainerFactory2() {
-    ConcurrentKafkaListenerContainerFactory<String, Message> factory =
-        new ConcurrentKafkaListenerContainerFactory<>();
-    factory.setConsumerFactory(consumerFactory());
-    return factory;
-  }
-
-  @Bean
-  public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Message>>
-  kafkaListenerContainerFactory3() {
-    ConcurrentKafkaListenerContainerFactory<String, Message> factory =
-        new ConcurrentKafkaListenerContainerFactory<>();
-    factory.setConsumerFactory(consumerFactory());
-    return factory;
-  }
-
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/producer")
 @RestController
 public class ProducerController {
+
   private final KafkaProducer kafkaProducer;
 
   /**
@@ -29,8 +30,9 @@ public class ProducerController {
   public void stress(@PathVariable(required = false) Integer count) {
     var stressCount = Objects.isNull(count) ? 1_000 : count;
 
-    IntStream.rangeClosed(1, stressCount).forEach(index ->
-        kafkaProducer.send(new Message(String.valueOf(index)))
-    );
+    IntStream.rangeClosed(1, stressCount).forEach(index -> {
+      Message message = new Message(String.valueOf(index));
+      kafkaProducer.send(message);
+    });
   }
 }
