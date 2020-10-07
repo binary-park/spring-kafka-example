@@ -12,6 +12,6 @@ public class KafkaTopics {
   /**
    * 예제를 위한 토픽.
    */
-  public static final String EXAMPLE_PARTITION_1 = "example-topic-partition-4";
+  public static final String EXAMPLE_PARTITION_1 = "example-topic-partition-1";
   public static final String EXAMPLE_PARTITION_2 = "example-topic-partition-2";
 }
